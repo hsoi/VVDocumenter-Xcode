@@ -54,6 +54,19 @@
     }
 }
 
+
+-(NSString *) seeComment
+{
+    return [NSString stringWithFormat:@"%@ *\n%@ *%@@see%@<#selector#>\n",self.indent,self.indent,self.space,self.space];
+}
+
+
+-(NSString *) warningComment
+{
+    return [NSString stringWithFormat:@"%@ *\n%@ *%@@warning%@<#warning description#>\n",self.indent,self.indent,self.space,self.space];
+}
+
+
 -(NSString *) endComment
 {
     return [NSString stringWithFormat:@"%@ */",self.indent];
@@ -61,10 +74,12 @@
 
 -(NSString *) document
 {
-    return [NSString stringWithFormat:@"%@%@%@%@",[self startComment],
-                                                  [self argumentsComment],
-                                                  [self returnComment],
-                                                  [self endComment]];
+    return [NSString stringWithFormat:@"%@%@%@%@%@%@",  [self startComment],
+                                                        [self argumentsComment],
+                                                        [self returnComment],
+                                                        [self seeComment],
+                                                        [self warningComment],
+                                                        [self endComment]];
 }
 
 -(void) parseArguments
