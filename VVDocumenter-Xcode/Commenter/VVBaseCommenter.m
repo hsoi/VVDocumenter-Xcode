@@ -62,13 +62,13 @@
 
 -(NSString *) seeComment
 {
-    return [NSString stringWithFormat:@"%@ *\n%@ *%@@see%@<#selector#>\n",self.indent,self.indent,self.space,self.space];
+    return [NSString stringWithFormat:@"%@%@@see <#selector#>\n", self.emptyLine, self.prefixString];
 }
 
 
 -(NSString *) warningComment
 {
-    return [NSString stringWithFormat:@"%@ *\n%@ *%@@warning%@<#warning description#>\n",self.indent,self.indent,self.space,self.space];
+    return [NSString stringWithFormat:@"%@%@@warning <#warning description#>\n", self.emptyLine, self.prefixString];
 }
 
 
